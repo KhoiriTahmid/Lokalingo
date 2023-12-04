@@ -27,7 +27,7 @@ const languages = [
     code: "hu",
   },
   {
-    name: "Indonesian",
+    name: "Indo",
     nativeName: "Bahasa Indonesia",
     viewBox: "0 1980 82 66",
     code: "id",
