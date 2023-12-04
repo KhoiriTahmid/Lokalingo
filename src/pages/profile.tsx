@@ -125,7 +125,7 @@ const ProfileStatsSection = () => {
               {streak}
             </span>
             <span className="text-sm text-gray-400 md:text-base">
-              Day streak
+              Hari Hari
             </span>
           </div>
         </div>
