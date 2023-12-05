@@ -1,5 +1,5 @@
 export const fakeUsers = [
-  { name: "Aaron", xp: 424, isCurrentUser: false },
+  { name: "Harun", xp: 424, isCurrentUser: false },
   { name: "Bobby", xp: 378, isCurrentUser: false },
   { name: "Cathy", xp: 249, isCurrentUser: false },
   { name: "Derek", xp: 216, isCurrentUser: false },

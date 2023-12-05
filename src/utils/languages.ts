@@ -51,51 +51,6 @@ const languages = [
     viewBox: "0 726 82 66",
     code: "code-NL",
   },
-  { name: "Polish", nativeName: "Polski", viewBox: "0 1056 82 66", code: "pl" },
-  {
-    name: "Portuguese",
-    nativeName: "Português",
-    viewBox: "0 594 82 66",
-    code: "pt",
-  },
-  {
-    name: "Romanian",
-    nativeName: "Română",
-    viewBox: "0 1386 82 66",
-    code: "ro",
-  },
-  {
-    name: "Russian",
-    nativeName: "Русский",
-    viewBox: "0 528 82 66",
-    code: "ru",
-  },
-  { name: "Thai", nativeName: "ภาษาไทย", viewBox: "0 2310 82 66", code: "th" },
-  {
-    name: "Tagalog",
-    nativeName: "Tagalog",
-    viewBox: "0 3036 82 66",
-    code: "tl",
-  },
-  { name: "Turkish", nativeName: "Türkçe", viewBox: "0 660 82 66", code: "tr" },
-  {
-    name: "Ukrainian",
-    nativeName: "Українською",
-    viewBox: "0 1716 82 66",
-    code: "uk",
-  },
-  {
-    name: "Vietnamese",
-    nativeName: "Tiếng Việt",
-    viewBox: "0 1188 82 66",
-    code: "vi",
-  },
-  {
-    name: "Chinese",
-    nativeName: "中文",
-    viewBox: "0 462 82 66",
-    code: "code-CN",
-  },
 ] as const;
 
 export default languages;
