@@ -16,7 +16,7 @@ const Account: NextPage = () => {
   const [localUsername, setLocalUsername] = useState(username);
 
   const accountOptions = [
-    { title: "Name", value: localName, setValue: setLocalName },
+    { title: "Nama", value: localName, setValue: setLocalName },
     { title: "Username", value: localUsername, setValue: setLocalUsername },
   ];
 
@@ -25,23 +25,23 @@ const Account: NextPage = () => {
       <TopBar />
       <LeftBar selectedTab={null} />
       <BottomBar selectedTab={null} />
-      <div className="mx-auto flex flex-col gap-5 px-4 py-20 sm:py-10 md:pl-28 lg:pl-72">
+      <div className="mx-auto flex flex-col gap-5 px-4 py-20 sm:py-10 md:pl-28 lg:pl-72 bg-[#fbe4d8] ">
         <div className="mx-auto flex w-full max-w-xl items-center justify-between lg:max-w-4xl">
-          <h1 className="text-lg font-bold text-gray-800 sm:text-2xl">
+          <h1 className="text-lg font-bold text-[#190019] sm:text-2xl">
             Account
           </h1>
           <button
-            className="rounded-2xl border-b-4 border-green-600 bg-green-500 px-5 py-3 font-bold uppercase text-white transition hover:brightness-110 disabled:border-b-0 disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:brightness-100"
+            className="rounded-2xl border-b-4 border-[#2b124c] bg-[#854f6c] px-5 py-3 font-bold uppercase text-white transition hover:brightness-110 disabled:border-b-0 disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:brightness-100"
             onClick={() => {
               setName(localName);
               setUsername(localUsername);
             }}
             disabled={name === localName && username === localUsername}
           >
-            Save changes
+            SIMPAN PERUBAHAN
           </button>
         </div>
-        <div className="flex justify-center gap-12">
+        <div className="flex justify-center gap-12 ">
           <div className="flex w-full max-w-xl flex-col gap-8">
             {accountOptions.map(({ title, value, setValue }) => {
               return (
@@ -51,7 +51,7 @@ const Account: NextPage = () => {
                 >
                   <div className="font-bold sm:w-1/6">{title}</div>
                   <input
-                    className="grow rounded-2xl border-2 border-gray-200 p-4 py-2"
+                    className="grow rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] text-[#190019] placeholder-[#2b124c] placeholder-opacity-80 p-4 py-2"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                   />
@@ -59,7 +59,7 @@ const Account: NextPage = () => {
               );
             })}
           </div>
-          <SettingsRightNav selectedTab="Account" />
+          <SettingsRightNav selectedTab="Akun" />
         </div>
       </div>
     </div>

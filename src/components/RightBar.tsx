@@ -38,10 +38,10 @@ export const RightBar = () => {
 
   return (
     <>
-      <aside className="sticky top-0 hidden w-96 flex-col gap-6 self-start sm:flex">
-        <article className="my-6 flex justify-between gap-4">
+      <aside className="sticky top-0 hidden w-96 flex-col gap-6 self-start bg-[#fbe4d8] sm:flex">
+        <article className="my-6 flex justify-between gap-4 ">
           <div
-            className="relative flex cursor-default items-center gap-2 rounded-xl p-3 font-bold uppercase text-gray-500 hover:bg-gray-100"
+            className="relative flex cursor-default items-center gap-2 rounded-xl p-3 font-bold uppercase text-[#2b124c] hover:bg-[#dfb6b2]"
             onMouseEnter={() => setLanguagesShown(true)}
             onMouseLeave={() => setLanguagesShown(false)}
             onClick={() => setLanguagesShown((x) => !x)}
@@ -51,33 +51,33 @@ export const RightBar = () => {
             <Flag language={language} width={45} />
             <div>{language.name}</div>
             <div
-              className="absolute top-full z-10 rounded-2xl border-2 border-gray-300 bg-white"
+              className="absolute top-full z-10 rounded-2xl border-2 border-[#2B124C] bg-[#FBE4D8]"
               style={{
                 left: "calc(50% - 150px)",
                 width: 300,
                 display: languagesShown ? "block" : "none",
               }}
             >
-              <h2 className="px-5 py-3 font-bold uppercase text-gray-400">
-                My courses
+              <h2 className="px-5 py-3 font-bold uppercase text-[#2B124C]">
+                Bahasaku
               </h2>
-              <button className="flex w-full items-center gap-3 border-t-2 border-gray-300 bg-blue-100 px-5 py-3 text-left font-bold">
+              <button className="flex w-full items-center gap-3 border-t-2 border-[#2B124C] bg-[#DFB6B2] px-5 py-3 text-left font-bold">
                 <Flag language={language} width={45} />
-                <span className="text-blue-500">{language.name}</span>
+                <span className="text-[#2B124C]">{language.name}</span>
               </button>
               <Link
-                className="flex w-full items-center gap-3 rounded-b-2xl border-t-2 border-gray-300 px-5 py-3 text-left font-bold hover:bg-gray-100"
+                className="flex w-full items-center gap-3 rounded-b-2xl border-t-2 border-[#2B124C] px-5 py-3 text-left font-bold hover:bg-[#DFB6B2]"
                 href="/register"
               >
-                <span className="flex items-center justify-center rounded-lg border-2 border-gray-400 px-2 text-lg font-bold text-gray-400">
+                <span className="flex items-center justify-center rounded-lg border-2 border-[#2B124C] px-2 text-lg font-bold text-[#2B124C]">
                   +
                 </span>
-                <span className="text-gray-600">Add new course</span>
+                <span className="text-[#2B124C]">Tambah bahasa baru</span>
               </Link>
             </div>
           </div>
           <span
-            className="relative flex items-center gap-2 rounded-xl p-3 font-bold text-orange-500 hover:bg-gray-100"
+            className="relative flex items-center gap-2 rounded-xl p-3 font-bold text-orange-500 hover:bg-[#dfb6b2]"
             onMouseEnter={() => setStreakShown(true)}
             onMouseLeave={() => {
               setStreakShown(false);
@@ -94,26 +94,26 @@ export const RightBar = () => {
             <div className="pointer-events-none">
               {streak > 0 ? <FireSvg /> : <EmptyFireSvg />}
             </div>
-            <span className={streak > 0 ? "text-orange-500" : "text-gray-300"}>
+            <span className={streak > 0 ? "text-orange-500" : "text-[#2B124C]"}>
               {streak}
             </span>
             <div
-              className="absolute top-full z-10 flex flex-col gap-5 rounded-2xl border-2 border-gray-300 bg-white p-5 text-black"
+              className="absolute top-full z-10 flex flex-col gap-5 rounded-2xl border-2 border-[#2B124C] bg-[#FBE4D8] p-5 text-[#2B124C]"
               style={{
-                left: "calc(50% - 200px)",
+                left: "calc(50% - 250px)",
                 width: 400,
                 display: streakShown ? "flex" : "none",
               }}
             >
-              <h2 className="text-center text-lg font-bold">Streak</h2>
-              <p className="text-center text-sm font-normal text-gray-400">
-                {`But your streak will reset tomorrow if you don't practice tomorrow. Watch out!`}
+              <h2 className="text-center text-lg font-bold">Runtunan</h2>
+              <p className="text-center text-sm font-normal text-[#2b124c]">
+                {`Namun runtunanmu akan hilang jika kamu tidak latihan besok, berhati-hatilah!`}
               </p>
               <Calendar now={now} setNow={setNow} />
             </div>
           </span>
           <span
-            className="relative flex items-center gap-2 rounded-xl p-3 font-bold text-red-500 hover:bg-gray-100"
+            className="relative flex items-center gap-2 rounded-xl p-3 font-bold text-red-500 hover:bg-[#dfb6b2]"
             onMouseEnter={() => setGemsShown(true)}
             onMouseLeave={() => setGemsShown(false)}
             onClick={() => setGemsShown((x) => !x)}
@@ -121,27 +121,28 @@ export const RightBar = () => {
             tabIndex={0}
           >
             {lingots > 0 ? <GemSvg /> : <EmptyGemSvg />}
-            <span className={lingots > 0 ? "text-red-500" : "text-gray-300"}>
+            <span className={lingots > 0 ? "text-red-500" : "text-[#2b124c]"}>
               {lingots}
             </span>
             <div
-              className="absolute top-full z-10 flex w-72 items-center gap-3 rounded-2xl border-2 border-gray-300 bg-white p-5"
+              className="absolute top-full z-10 flex w-72 items-center gap-3 rounded-2xl border-2 border-[#2b124c] bg-[#fbe4d6] p-5"
               style={{
-                left: "calc(50% - 150px)",
+                left: "calc(50% - 250px)",
                 display: gemsShown ? "flex" : "none",
               }}
             >
               <LingotsTreasureChestSvg className="w-24" />
               <div className="flex flex-col gap-3">
-                <h2 className="text-xl font-bold text-black">Lingots</h2>
-                <p className="text-sm font-normal text-gray-400">
-                  You have {lingots} {lingots === 1 ? "lingot" : "lingots"}.
+                <h2 className="text-xl font-bold text-[#190019]">Permata</h2>
+                <p className="text-sm font-normal text-[#2b124c]">
+                  Kamu memiliki {lingots} {lingots === 1 ? "lingot" : "permata"}
+                  .
                 </p>
                 <Link
-                  className="uppercase text-blue-400 transition hover:brightness-110"
+                  className="uppercase text-[#7286d3] transition hover:brightness-110"
                   href="/shop"
                 >
-                  Go to shop
+                  Pergi ke toko
                 </Link>
               </div>
             </div>
@@ -176,14 +177,13 @@ const UnlockLeaderboardsSection = () => {
   const lessonsNeededToUnlockLeaderboards = 10 - lessonsCompleted;
 
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 text-gray-700">
-      <h2 className="text-xl font-bold">Unlock Leaderboards!</h2>
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#DFB6B2] p-6 text-[#2b124c]">
+      <h2 className="text-xl font-bold">Buka papan skor!</h2>
       <div className="flex items-center gap-6">
         <LockedLeaderboardsSvg />
-        <p className="text-sm leading-6 text-gray-500">
-          Complete {lessonsNeededToUnlockLeaderboards} more lesson
-          {lessonsNeededToUnlockLeaderboards === 1 ? "" : "s"} to start
-          competing
+        <p className="text-sm leading-6 text-[#2b124c] ">
+          Selesaikan {lessonsNeededToUnlockLeaderboards} latihan lagi untuk
+          mulai bersaing
         </p>
       </div>
     </article>
@@ -193,25 +193,28 @@ const UnlockLeaderboardsSection = () => {
 const LeaderboardRankSection = () => {
   const xpThisWeek = useBoundStore((x) => x.xpThisWeek());
   const rank = useLeaderboardRank();
-  const leaderboardLeague = "Bronze League";
+  const leaderboardLeague = "Liga Perunggu";
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 text-gray-700">
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#dfb6b2] p-6 text-[#2b124c]">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold">{leaderboardLeague}</h2>
-        <Link href="/leaderboard" className="font-bold uppercase text-blue-400">
-          View league
+        <Link
+          href="/leaderboard"
+          className="font-bold uppercase text-[#7286d3]"
+        >
+          Lihat Liga
         </Link>
       </div>
       <div className="flex gap-6">
         <BronzeLeagueSvg />
         <div className="flex flex-col gap-5">
           {rank !== null && (
-            <p className="text-lg font-bold text-gray-700">
-              {`You're ranked #${rank}`}
+            <p className="text-lg font-bold text-[#190019]">
+              {`Kamu diperingkat #${rank}`}
             </p>
           )}
-          <p className="text-sm leading-6 text-gray-500">
-            You earned {xpThisWeek} XP this week so far
+          <p className="text-sm leading-6 text-[#522b5b]">
+            Kamu telah mendapat {xpThisWeek} XP minggu ini
           </p>
         </div>
       </div>
@@ -223,12 +226,12 @@ const DailyQuestsSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 font-bold text-gray-700">
-      <h2 className="text-xl">Daily Quests</h2>
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#dfb6b2] p-6 font-bold text-[#2b124c]">
+      <h2 className="text-xl">Misi harian</h2>
       <div className="flex items-center gap-4">
         <LightningProgressSvg />
         <div className="flex flex-col gap-2">
-          <h3>Earn {goalXp} XP</h3>
+          <h3>Dapatkan {goalXp} XP</h3>
           <div className="flex items-center">
             <div className="relative h-5 w-52 rounded-l-full bg-gray-200">
               <div
@@ -587,17 +590,17 @@ const XpProgressSection = () => {
   const xpToday = useBoundStore((x) => x.xpToday());
   const goalXp = useBoundStore((x) => x.goalXp);
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 font-bold text-gray-700">
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#dfb6b2] p-6 font-bold text-[#2b124c]">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl">XP Progress</h2>
-        <Link href="/settings/coach" className="uppercase text-blue-400">
-          Edit goal
+        <h2 className="text-xl"> Progres XP</h2>
+        <Link href="/settings/coach" className="uppercase text-[#7286d3]">
+          Edit target
         </Link>
       </div>
       <div className="flex gap-5">
         <TreasureClosedSvg />
         <div className="flex grow flex-col justify-around">
-          <h3 className="font-normal text-gray-500">Daily goal</h3>
+          <h3 className="font-normal text-[#2b124c]">Target Harian</h3>
           <div className="flex items-center gap-5">
             <div className="relative h-4 w-full grow rounded-full bg-gray-200">
               {xpToday > 0 && (
@@ -609,7 +612,7 @@ const XpProgressSection = () => {
                 </div>
               )}
             </div>
-            <div className="text-md shrink-0 font-normal text-gray-400">
+            <div className="text-md shrink-0 font-normal text-[#2b124c]">
               {xpToday}/{goalXp} XP
             </div>
           </div>
@@ -625,19 +628,21 @@ const CreateAProfileSection = ({
   setLoginScreenState: React.Dispatch<React.SetStateAction<LoginScreenState>>;
 }) => {
   return (
-    <article className="flex flex-col gap-5 rounded-2xl border-2 border-gray-200 p-6 font-bold">
-      <h2 className="text-xl">Create a profile to save your progress!</h2>
+    <article className="flex flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#dfb6b2] p-6 font-bold">
+      <h2 className="text-xl">
+        Buat profil untuk menyimpan progres belajarmu!
+      </h2>
       <button
-        className="rounded-2xl border-b-4 border-green-600 bg-green-500 py-3 uppercase text-white transition hover:border-green-500 hover:bg-green-400"
+        className="rounded-2xl border-b-4 border-[#2b124c] bg-[#854f6c] py-3 uppercase text-white transition hover:border-[#072e33] hover:bg-opacity-50"
         onClick={() => setLoginScreenState("SIGNUP")}
       >
-        Create a profile
+        Masuk
       </button>
       <button
-        className="rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 uppercase text-white transition hover:border-blue-400 hover:bg-blue-300"
+        className="rounded-2xl border-b-4 border-[#05161a] bg-[#2b124c] py-3 uppercase text-white transition hover:border-opacity-50 hover:bg-opacity-50"
         onClick={() => setLoginScreenState("LOGIN")}
       >
-        Sign in
+        Buat akun
       </button>
     </article>
   );

@@ -21,15 +21,17 @@ import Image from "next/image";
 
 const LeaderboardExplanationSection = () => {
   return (
-    <article className="relative hidden h-fit w-96 shrink-0 gap-5 rounded-2xl border-2 border-gray-200 p-6 xl:flex">
+    <article className="relative hidden h-fit w-96 shrink-0 gap-5 rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] p-6 xl:flex">
       <div className="flex flex-col gap-5">
-        <h2 className="font-bold uppercase text-gray-400">
-          What are leaderboards?
+        <h2 className="font-bold uppercase text-[#2b124c]">
+          Apa itu papan skor?
         </h2>
-        <p className="font-bold text-gray-700">Do lessons. Earn XP. Compete.</p>
-        <p className="text-gray-400">
-          Earn XP through lessons, then compete with players in a weekly
-          leaderboard
+        <p className="font-bold text-[#522b5b]">
+          Kerjakan latihan. Dapatkan XP. Bersaing.
+        </p>
+        <p className="text-[#2b124c]">
+          Terima XP melalui latihan, lalu bersaing dengan pengguna lainnya dalam
+          papan skor mingguan
         </p>
       </div>
 
@@ -82,8 +84,8 @@ const LeaderboardProfile = ({
   return (
     <div
       className={[
-        "flex items-center gap-5 rounded-2xl px-5 py-2 hover:bg-gray-100 md:mx-0",
-        isCurrentUser ? "bg-gray-200" : "",
+        "flex items-center gap-5 rounded-2xl px-5 py-2 hover:bg-[#dfb6b2] md:mx-0",
+        isCurrentUser ? "bg-[#dfb6b2] bg-opacity-60" : "",
       ].join(" ")}
     >
       <div className="flex items-center gap-4">
@@ -94,7 +96,7 @@ const LeaderboardProfile = ({
         ) : place === 3 ? (
           <ThirdPlaceSvg />
         ) : (
-          <div className="flex h-10 w-10 items-center justify-center font-bold text-green-700">
+          <div className="flex h-10 w-10 items-center justify-center font-bold text-[#2b124c]">
             {place}
           </div>
         )}
@@ -131,39 +133,39 @@ const Leaderboard: NextPage = () => {
     lessonsToUnlockLeaderboard - lessonsCompleted;
   const leaderboardIsUnlocked = lessonsCompleted >= lessonsToUnlockLeaderboard;
 
-  const leaderboardLeague = "Bronze League";
+  const leaderboardLeague = "Liga Perunggu";
 
   const leaderboardUsers = useLeaderboardUsers();
 
   return (
     <div>
-      <LeftBar selectedTab="Leaderboards" />
-      <div className="flex justify-center gap-3 pt-14 md:ml-24 md:p-6 md:pt-10 lg:ml-64 lg:gap-12">
+      <LeftBar selectedTab="Papan skor" />
+      <div className="flex justify-center gap-3 bg-[#fbe4d8] pt-14 md:ml-24 md:p-6 md:pt-10 lg:ml-64 lg:gap-12">
         <div className="flex w-full max-w-xl flex-col items-center gap-5 pb-28 md:px-5">
           {!leaderboardIsUnlocked && (
             <>
               <LeaderboardBannerSvg />
-              <h1 className="text-center text-2xl font-bold text-gray-700">
-                Unlock Leaderboards!
+              <h1 className="text-center text-2xl font-bold text-[#2b124c]">
+                Buka Papan skor!
               </h1>
-              <p className="text-center text-lg text-gray-500">
-                Complete {lessonsRemainingToUnlockLeaderboard} more lesson
-                {lessonsRemainingToUnlockLeaderboard === 1 ? "" : "s"} to start
-                competing
+              <p className="text-center text-lg text-[#522b5b]">
+                Selesaikan {lessonsRemainingToUnlockLeaderboard} latihan lagi
+                {lessonsRemainingToUnlockLeaderboard === 1 ? "" : "s"} untuk
+                mulai bersaing di papan skor
               </p>
               <Link
                 href="/lesson?practice"
-                className="w-fit rounded-2xl border-2 border-b-4 border-gray-200 px-16 py-2 text-center font-bold uppercase text-blue-400 transition hover:bg-gray-50 hover:brightness-90"
+                className="w-fit rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] px-16 py-2 text-center font-bold uppercase text-[#2b124c] transition hover:bg-[#dfb6b2] hover:brightness-90"
               >
-                Start a lesson
+                Kerjakan latihan
               </Link>
-              <div className="h-5"></div>
+              <div className="h-5 "></div>
               <LockedLeaderboardSvg />
             </>
           )}
           {leaderboardIsUnlocked && (
             <>
-              <div className="sticky top-0 -mt-14 flex w-full flex-col items-center gap-5 bg-white pt-14">
+              <div className="sticky top-0 -mt-14 flex w-full flex-col items-center gap-5 bg-[#fbe4d8] pt-14">
                 <div className="flex items-center gap-5">
                   <BronzeLeagueSvg className="h-fit w-20" />
                   <LockedLeagueSvg />
@@ -173,14 +175,14 @@ const Leaderboard: NextPage = () => {
                 </div>
                 <h1 className="text-2xl font-bold">{leaderboardLeague}</h1>
                 <div className="flex w-full flex-col items-center gap-1 pb-5">
-                  <p className="text-lg text-gray-500">
-                    Top 20 advance to the next league
+                  <p className="text-lg text-[#2b124c]">
+                    Top 20 pengguna akan naik ke liga berikutnya
                   </p>
-                  <time className="font-bold text-yellow-400">
+                  <time className="font-bold text-yellow-500">
                     {timeLeft()}
                   </time>
                 </div>
-                <div className="w-full border-b-2 border-gray-200"></div>
+                <div className="w-full border-b-2 border-[#2b124c]"></div>
               </div>
               <div className="w-full">
                 {leaderboardUsers.map((user, i) => {
@@ -200,7 +202,7 @@ const Leaderboard: NextPage = () => {
         </div>
         {!leaderboardIsUnlocked && <LeaderboardExplanationSection />}
       </div>
-      <BottomBar selectedTab="Leaderboards" />
+      <BottomBar selectedTab="Papan skor" />
     </div>
   );
 };

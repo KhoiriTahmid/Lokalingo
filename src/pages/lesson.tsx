@@ -21,19 +21,19 @@ import { useRouter } from "next/router";
 
 const lessonProblem1 = {
   type: "SELECT_1_OF_3",
-  question: `Which one of these is "the apple"?`,
+  question: `Dimana dibawah ini yang merupakan "Budak pameget"?`,
   answers: [
-    { icon: <AppleSvg />, name: "la manzana" },
-    { icon: <BoySvg />, name: "el niño" },
-    { icon: <WomanSvg />, name: "la mujer" },
+    { icon: <AppleSvg />, name: "apel" },
+    { icon: <BoySvg />, name: "Anak laki-laki" },
+    { icon: <WomanSvg />, name: "Kakak Perempuan" },
   ],
-  correctAnswer: 0,
+  correctAnswer: 1,
 } as const;
 
 const lessonProblem2 = {
   type: "WRITE_IN_ENGLISH",
-  question: "El niño",
-  answerTiles: ["woman", "milk", "water", "I", "The", "boy"],
+  question: "Kumaha barudak?",
+  answerTiles: ["jalan", "rumah", "memasak", "aku", "Bagaimana", "kabarmu"],
   correctAnswer: [4, 5],
 } as const;
 
@@ -241,7 +241,7 @@ const ProgressBar = ({
       {correctAnswerCount === 0 ? (
         <Link href="/learn" className="text-gray-400">
           <CloseSvg />
-          <span className="sr-only">Exit lesson</span>
+          <span className="sr-only">Keluar pembelajaran</span>
         </Link>
       ) : (
         <button
@@ -249,7 +249,7 @@ const ProgressBar = ({
           onClick={() => setQuitMessageShown(true)}
         >
           <CloseSvg />
-          <span className="sr-only">Exit lesson</span>
+          <span className="sr-only">Keluar pembelajaran</span>
         </button>
       )}
       <div
@@ -312,10 +312,10 @@ const QuitMessage = ({
       >
         <div className="flex grow flex-col gap-4">
           <h2 className="text-lg font-bold sm:text-2xl">
-            Are you sure you want to quit?
+            Apakah kamu yakin ingin keluar?
           </h2>
           <p className="text-gray-500 sm:text-lg">
-            All progress for this lesson will be lost.
+            Seluruh progres dalam pembelajaran ini akan hilang
           </p>
         </div>
         <div className="flex grow flex-col items-center justify-center gap-4 sm:flex-row-reverse">
@@ -323,13 +323,13 @@ const QuitMessage = ({
             className="flex w-full items-center justify-center rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-105 sm:w-48"
             href="/learn"
           >
-            Quit
+            Keluar
           </Link>
           <button
             className="w-full rounded-2xl py-3 font-bold uppercase text-blue-400 transition hover:brightness-90 sm:w-48 sm:border-2 sm:border-b-4 sm:border-gray-300 sm:text-gray-400 sm:hover:bg-gray-100"
             onClick={() => setQuitMessageShown(false)}
           >
-            Stay
+            Lanjut
           </button>
         </div>
       </article>
@@ -356,17 +356,17 @@ const CheckAnswer = ({
 }) => {
   return (
     <>
-      <section className="border-gray-200 sm:border-t-2 sm:p-10">
-        <div className="mx-auto flex max-w-5xl sm:justify-between">
+      <section className="border-[#2b124c] sm:border-t-2 sm:p-10 bg-[#fbe4d8]">
+        <div className="mx-auto flex max-w-5xl sm:justify-between ">
           <button
-            className="hidden rounded-2xl border-2 border-b-4 border-gray-200 bg-white p-3 font-bold uppercase text-gray-400 transition hover:border-gray-300 hover:bg-gray-200 sm:block sm:min-w-[150px] sm:max-w-fit"
+            className="hidden rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] p-3 font-bold uppercase text-[#2b124c] transition hover:border-opacity-50 hover:bg-opacity-50 sm:block sm:min-w-[150px] sm:max-w-fit"
             onClick={onSkip}
           >
             Skip
           </button>
           {!isAnswerSelected ? (
             <button
-              className="grow rounded-2xl bg-gray-200 p-3 font-bold uppercase text-gray-400 sm:min-w-[150px] sm:max-w-fit sm:grow-0"
+              className="grow rounded-2xl border-[#2b124c] bg-[#dfb6b2] p-3 font-bold uppercase text-gray-400 sm:min-w-[150px] sm:max-w-fit sm:grow-0"
               disabled
             >
               Check
@@ -398,7 +398,7 @@ const CheckAnswer = ({
                 <div className="hidden rounded-full bg-white p-5 text-green-500 sm:block">
                   <DoneSvg />
                 </div>
-                <div className="text-2xl">Good job!</div>
+                <div className="text-2xl">Kerja bagus!</div>
               </div>
             ) : (
               <div className="mb-2 flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -406,7 +406,7 @@ const CheckAnswer = ({
                   <BigCloseSvg />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <div className="text-2xl">Correct solution:</div>{" "}
+                  <div className="text-2xl">Jawaban yang benar:</div>{" "}
                   <div className="text-sm font-normal">{correctAnswer}</div>
                 </div>
               </div>
@@ -420,7 +420,7 @@ const CheckAnswer = ({
                 : "w-full rounded-2xl border-b-4 border-red-600 bg-red-500 p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
             }
           >
-            Continue
+            Lanjutkan
           </button>
         </div>
       </div>
@@ -460,8 +460,8 @@ const ProblemSelect1Of3 = ({
   const { question, answers, correctAnswer } = problem;
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0">
-      <div className="flex grow flex-col items-center gap-5">
+    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
+      <div className="flex grow flex-col items-center gap-5 ">
         <div className="w-full max-w-5xl sm:mt-8 sm:px-5">
           <ProgressBar
             correctAnswerCount={correctAnswerCount}
@@ -470,22 +470,22 @@ const ProblemSelect1Of3 = ({
             hearts={hearts}
           />
         </div>
-        <section className="flex max-w-2xl grow flex-col gap-5 self-center sm:items-center sm:justify-center sm:gap-24 sm:px-5">
+        <section className="flex max-w-2xl grow flex-col gap-5 self-center sm:items-center sm:justify-center sm:gap-24 sm:px-5 ">
           <h1 className="self-start text-2xl font-bold sm:text-3xl">
             {question}
           </h1>
           <div
-            className="grid grid-cols-2 gap-2 sm:grid-cols-3"
+            className="grid grid-cols-2 gap-2 sm:grid-cols-3  "
             role="radiogroup"
           >
             {answers.map((answer, i) => {
               return (
                 <div
                   key={i}
-                  className={
+                  className={ 
                     i === selectedAnswer
-                      ? "cursor-pointer rounded-xl border-2 border-b-4 border-blue-300 bg-blue-100 p-4 text-blue-400"
-                      : "cursor-pointer rounded-xl border-2 border-b-4 border-gray-200 p-4 hover:bg-gray-100"
+                      ? "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#b9f3fc] p-4 text-[#190019] font-bold"
+                      : "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] p-4 hover:bg-gray-100 text-[#190019] "
                   }
                   role="radio"
                   aria-checked={i === selectedAnswer}
@@ -551,7 +551,7 @@ const ProblemWriteInEnglish = ({
   const { question, correctAnswer, answerTiles } = problem;
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0">
+    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
       <div className="flex grow flex-col items-center gap-5">
         <div className="w-full max-w-5xl sm:mt-8 sm:px-5">
           <ProgressBar
@@ -563,16 +563,16 @@ const ProblemWriteInEnglish = ({
         </div>
         <section className="flex max-w-2xl grow flex-col gap-5 self-center sm:items-center sm:justify-center sm:gap-24">
           <h1 className="mb-2 text-2xl font-bold sm:text-3xl">
-            Write this in English
+            Tuliskan dalam Bahasa Indonesia
           </h1>
 
           <div className="w-full">
             <div className="flex items-center gap-2 px-2">
               <Image src={womanPng} alt="" width={92} height={115} />
-              <div className="relative ml-2 w-fit rounded-2xl border-2 border-gray-200 p-4">
+              <div className="relative ml-2 w-fit rounded-2xl border-2 border-[#2b124c] bg-[#Fbe4d8] p-4">
                 {question}
                 <div
-                  className="absolute h-4 w-4 rotate-45 border-b-2 border-l-2 border-gray-200 bg-white"
+                  className="absolute h-4 w-4 rotate-45 border-b-2 border-l-2 border-[#2b124c] bg-[#Fbe4d8]"
                   style={{
                     top: "calc(50% - 8px)",
                     left: "-10px",
@@ -581,12 +581,12 @@ const ProblemWriteInEnglish = ({
               </div>
             </div>
 
-            <div className="flex min-h-[60px] flex-wrap gap-1 border-b-2 border-t-2 border-gray-200 py-1">
+            <div className="flex min-h-[60px] flex-wrap gap-1 border-b-2 border-t-2 border-[#522b5b] py-1">
               {selectedAnswers.map((i) => {
                 return (
                   <button
                     key={i}
-                    className="rounded-2xl border-2 border-b-4 border-gray-200 p-2 text-gray-700"
+                    className="rounded-2xl border-2 border-b-4 border-[#2b124c] p-2 text-[#2b124c]"
                     onClick={() => {
                       setSelectedAnswers((selectedAnswers) => {
                         return selectedAnswers.filter((x) => x !== i);
@@ -606,8 +606,8 @@ const ProblemWriteInEnglish = ({
                   key={i}
                   className={
                     selectedAnswers.includes(i)
-                      ? "rounded-2xl border-2 border-b-4 border-gray-200 bg-gray-200 p-2 text-gray-200"
-                      : "rounded-2xl border-2 border-b-4 border-gray-200 p-2 text-gray-700"
+                      ? "rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#2b124c] p-2 text-[#2b124c]"
+                      : "rounded-2xl border-2 border-b-4 border-[#2b124c] p-2 text-[#2b124c]"
                   }
                   disabled={selectedAnswers.includes(i)}
                   onClick={() =>
@@ -672,27 +672,27 @@ const LessonComplete = ({
     (x) => x.increaseLessonsCompleted
   );
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0">
+    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
       <div className="flex grow flex-col items-center justify-center gap-8 font-bold">
-        <h1 className="text-center text-3xl text-yellow-400">
-          Lesson Complete!
+        <h1 className="text-center text-3xl text-[#2b124c]">
+          Pembelajaran selesai!
         </h1>
         <div className="flex flex-wrap justify-center gap-5">
-          <div className="min-w-[110px] rounded-xl border-2 border-yellow-400 bg-yellow-400">
+          <div className="min-w-[110px] rounded-xl border-2 border-[#FEBE8C] bg-[#FEBE8C]">
             <h2 className="py-1 text-center text-white">Total XP</h2>
-            <div className="flex justify-center rounded-xl bg-white py-4 text-yellow-400">
+            <div className="flex justify-center rounded-xl bg-[#fbe4d8] py-4 text-[#FEBE8C]">
               {correctAnswerCount}
             </div>
           </div>
-          <div className="min-w-[110px] rounded-xl border-2 border-blue-400 bg-blue-400">
-            <h2 className="py-1 text-center text-white">Committed</h2>
-            <div className="flex justify-center rounded-xl bg-white py-4 text-blue-400">
+          <div className="min-w-[110px] rounded-xl border-2 border-[#748DA6] bg-[#748DA6]">
+            <h2 className="py-1 text-center text-[white]">Committed</h2>
+            <div className="flex justify-center rounded-xl bg-[#fbe4d8] py-4 text-[#748DA6]">
               {formatTime(endTime.current - startTime.current)}
             </div>
           </div>
-          <div className="min-w-[110px] rounded-xl border-2 border-green-400 bg-green-400">
+          <div className="min-w-[110px] rounded-xl border-2 border-[#618264] bg-[#618264]">
             <h2 className="py-1 text-center text-white">Amazing</h2>
-            <div className="flex justify-center rounded-xl bg-white py-4 text-green-400">
+            <div className="flex justify-center rounded-xl bg-[#fbe4d8] py-4 text-[#618264]">
               {Math.round(
                 (correctAnswerCount /
                   (correctAnswerCount + incorrectAnswerCount)) *
@@ -703,17 +703,17 @@ const LessonComplete = ({
           </div>
         </div>
       </div>
-      <section className="border-gray-200 sm:border-t-2 sm:p-10">
+      <section className="border-[#2b124c] sm:border-t-2 sm:p-10">
         <div className="mx-auto flex max-w-5xl sm:justify-between">
           <button
-            className="hidden rounded-2xl border-2 border-b-4 border-gray-200 bg-white p-3 font-bold uppercase text-gray-400 transition hover:border-gray-300 hover:bg-gray-200 sm:block sm:min-w-[150px] sm:max-w-fit"
+            className="hidden rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#854f6c] p-3 font-bold uppercase text-white transition hover:border-[#522b5b] hover:bg-opacity-50 sm:block sm:min-w-[150px] sm:max-w-fit"
             onClick={() => setReviewLessonShown(true)}
           >
-            Review lesson
+            Ulas kembali pelajaran
           </button>
           <Link
             className={
-              "flex w-full items-center justify-center rounded-2xl border-b-4 border-green-600 bg-green-500 p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
+              "flex w-full items-center justify-center rounded-2xl border-b-4 border-[#748e63] bg-[#99b080] p-3 font-bold uppercase text-white transition hover:bg-opacity-70 hover:border-opacity-70 sm:min-w-[150px] sm:max-w-fit"
             }
             href="/learn"
             onClick={() => {
@@ -725,7 +725,7 @@ const LessonComplete = ({
               }
             }}
           >
-            Continue
+            Lanjutkan
           </Link>
         </div>
       </section>
@@ -769,17 +769,17 @@ const ReviewLesson = ({
         ].join(" ")}
         onClick={() => setReviewLessonShown(false)}
       ></div>
-      <div className="relative flex w-full max-w-4xl flex-col gap-5 rounded-2xl border-2 border-gray-200 bg-white p-8">
+      <div className="relative flex w-full max-w-4xl flex-col gap-5 rounded-2xl border-2 border-[#2b124c] bg-[#fbe4d8] p-8">
         <button
-          className="absolute -right-5 -top-5 rounded-full border-2 border-gray-200 bg-gray-100 p-1 text-gray-400 hover:brightness-90"
+          className="absolute -right-5 -top-5 rounded-full border-2 border-[#2b124c] bg-[#fbe4d8] p-1 text-[#2b124c] hover:brightness-90"
           onClick={() => setReviewLessonShown(false)}
         >
           <BigCloseSvg className="h-8 w-8" />
           <span className="sr-only">Close</span>
         </button>
-        <h2 className="text-center text-3xl">Check out your scorecard!</h2>
-        <p className="text-center text-xl text-gray-400">
-          Click the tiles below to reveal the solutions
+        <h2 className="text-center text-3xl">Periksa kartu skormu!</h2>
+        <p className="text-center text-xl text-[#2b124c]">
+          Klik kotak dibawah ini untuk menampilkan jawabannya
         </p>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {questionResults.map((questionResult, i) => {
@@ -802,7 +802,7 @@ const ReviewLesson = ({
               >
                 <div className="flex justify-between gap-2">
                   <h3 className="font-bold">{questionResult.question}</h3>
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#fbe4d8]">
                     {questionResult.yourResponse ===
                     questionResult.correctResponse ? (
                       <DoneSvg className="h-5 w-5" />
@@ -813,19 +813,19 @@ const ReviewLesson = ({
                 </div>
                 <div>{questionResult.yourResponse}</div>
                 {selectedQuestionResult === questionResult && (
-                  <div className="absolute left-1 right-1 top-20 z-10 rounded-2xl border-2 border-gray-200 bg-white p-3 text-sm tracking-tighter">
+                  <div className="absolute left-1 right-1 top-20 z-10 rounded-2xl border-2 border-[#2b124c] bg-[#fbe4d8] p-3 text-sm tracking-tighter">
                     <div
-                      className="absolute -top-2 h-3 w-3 rotate-45 border-l-2 border-t-2 border-gray-200 bg-white"
+                      className="absolute -top-2 h-3 w-3 rotate-45 border-l-2 border-t-2 border-[#2b124c] bg-[#fbe4d8]"
                       style={{ left: "calc(50% - 6px)" }}
                     ></div>
-                    <div className="font-bold uppercase text-gray-400">
-                      Your response:
+                    <div className="font-bold uppercase text-[#2b124c]">
+                      Jawabanmu :
                     </div>
                     <div className="mb-3 text-gray-700">
                       {questionResult.yourResponse}
                     </div>
-                    <div className="font-bold uppercase text-gray-400">
-                      Correct response:
+                    <div className="font-bold uppercase text-[#2b124c]">
+                      Jawaban sebenarnya:
                     </div>
                     <div className="text-gray-700">
                       {questionResult.correctResponse}
@@ -849,30 +849,30 @@ const LessonFastForwardStart = ({
   setIsStartingLesson: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center">
+    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
       <div className="flex grow flex-col items-center justify-center gap-5">
         <LessonFastForwardStartSvg />
-        <h1 className="text-lg font-bold">
-          Want to jump to Unit {unitNumber}?
+        <h1 className="text-lg font-bold text-[#190019]">
+          Ingin langsung ke unit {unitNumber}?
         </h1>
-        <p className="text-sm text-gray-400">
-          {`Pass the test to jump ahead. We won't make it easy for you though.`}
+        <p className="text-sm text-[#2b124c]">
+          {`Lewati ujian berikut untuk langsung ke unit berikutnya. Tentunya tidak akan mudah bukan?`}
         </p>
       </div>
       <div className="flex flex-col gap-5"></div>
-      <section className="border-gray-200 sm:border-t-2 sm:p-10">
+      <section className="border-[#2B124C] sm:border-t-2 sm:p-10">
         <div className="mx-auto flex max-w-5xl flex-col-reverse items-center gap-5 sm:flex-row sm:justify-between">
           <Link
             href="/learn"
-            className="font-bold uppercase text-blue-400 transition hover:brightness-110"
+            className="font-bold uppercase text-[#7286d3] transition hover:brightness-110"
           >
-            Maybe later
+            Mungkin nanti
           </Link>
           <button
-            className="w-full rounded-2xl border-b-4 border-blue-500 bg-blue-400 p-3 font-bold uppercase text-white transition hover:brightness-110 sm:min-w-[150px] sm:max-w-fit"
+            className="w-full rounded-2xl border-b-4 border-[#2b124c] bg-[#854f6c] p-3 font-bold uppercase text-white transition hover:bg-opacity-60 sm:min-w-[150px] sm:max-w-fit"
             onClick={() => setIsStartingLesson(false)}
           >
-            {`Let's go`}
+            {`Aku siap`}
           </button>
         </div>
       </section>
@@ -892,29 +892,29 @@ const LessonFastForwardEndFail = ({
   questionResults: QuestionResult[];
 }) => {
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center">
+    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
       <div className="flex grow flex-col items-center justify-center gap-5">
         <LessonFastForwardEndFailSvg />
         <h1 className="text-2xl font-bold">
-          {`You didn't unlock Unit ${unitNumber}`}
+          {`Kamu belum membuka unit ${unitNumber}`}
         </h1>
         <p className="text-lg text-gray-500">
-          {`Don't worry! Practice makes perfect.`}
+          {`Jangan khawatir. Terus mencoba menghasilkan kesempurnaan!`}
         </p>
       </div>
-      <section className="border-gray-200 sm:border-t-2 sm:p-10">
-        <div className="mx-auto flex max-w-5xl sm:justify-between">
+      <section className="border-[#2b124c] sm:border-t-2 sm:p-10">
+        <div className="mx-auto flex max-w-5xl sm:justify-between ">
           <button
-            className="hidden rounded-2xl border-2 border-b-4 border-gray-200 bg-white p-3 font-bold uppercase text-gray-400 transition hover:border-gray-300 hover:bg-gray-200 sm:block sm:min-w-[150px] sm:max-w-fit"
+            className="hidden rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#854f6c] p-3 font-bold uppercase text-white transition hover:border-[#522b5b] hover:bg-opacity-50 sm:block sm:min-w-[150px] sm:max-w-fit"
             onClick={() => setReviewLessonShown(true)}
           >
-            Review lesson
+            Ulas kembali Pembelajaran
           </button>
           <Link
-            className="flex w-full items-center justify-center rounded-2xl border-b-4 border-green-600 bg-green-500 p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
+            className="flex w-full items-center justify-center rounded-2xl border-b-4 border-[#748e63] bg-[#99b080] p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
             href="/learn"
           >
-            Continue
+            Lanjutkan
           </Link>
         </div>
       </section>
@@ -940,28 +940,29 @@ const LessonFastForwardEndPass = ({
 }) => {
   const jumpToUnit = useBoundStore((x) => x.jumpToUnit);
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center">
-      <div className="flex grow flex-col items-center justify-center gap-5">
+    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
+      <div className="flex grow flex-col items-center justify-center gap-5 ">
         <LessonFastForwardEndPassSvg />
-        <h1 className="text-2xl font-bold">You unlocked Unit {unitNumber}!</h1>
+        <h1 className="text-2xl font-bold">Kamu telah membuka unit {unitNumber}, yey!</h1>
         <p className="text-lg text-gray-500">
-          Way to go! You’re making great strides!
+          
+          Kamu telah membuat progres besar!
         </p>
       </div>
-      <section className="border-gray-200 sm:border-t-2 sm:p-10">
-        <div className="mx-auto flex max-w-5xl sm:justify-between">
+      <section className="border-[#2b124c] sm:border-t-2 sm:p-10 ">
+        <div className="mx-auto flex max-w-5xl sm:justify-between ">
           <button
-            className="hidden rounded-2xl border-2 border-b-4 border-gray-200 bg-white p-3 font-bold uppercase text-gray-400 transition hover:border-gray-300 hover:bg-gray-200 sm:block sm:min-w-[150px] sm:max-w-fit"
+            className="hidden rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#854f6c] p-3 font-bold uppercase text-white transition hover:border-[#522b5b] hover:bg-opacity-50 sm:block sm:min-w-[150px] sm:max-w-fit"
             onClick={() => setReviewLessonShown(true)}
           >
-            Review lesson
+            Ulas kembali pembelajaran
           </button>
           <Link
-            className="flex w-full items-center justify-center rounded-2xl border-b-4 border-green-600 bg-green-500 p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
+            className="flex w-full items-center justify-center rounded-2xl border-b-4 border-[#748e63] bg-[#99b080] p-3 font-bold uppercase text-white transition hover:brightness-105 sm:min-w-[150px] sm:max-w-fit"
             href="/learn"
             onClick={() => jumpToUnit(unitNumber)}
           >
-            Continue
+            Lanjutkan
           </Link>
         </div>
       </section>

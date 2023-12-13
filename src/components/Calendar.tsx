@@ -38,20 +38,20 @@ export const Calendar = ({
   const staticNow = dayjs();
   const calendarDays = getCalendarDays(now);
   return (
-    <article className="flex flex-col rounded-xl border-2 border-gray-300 p-3 text-gray-400">
+    <article className="flex flex-col rounded-xl border-2 border-[#2b124c] p-3 text-[#2b124c]">
       <header className="flex items-center justify-between gap-3">
         <button
-          className="text-gray-400"
+          className="text-[#2b124c] "
           onClick={() => setNow((now) => now.add(-1, "month"))}
         >
           <ChevronLeftSvg />
           <span className="sr-only">Go to previous month</span>
         </button>
-        <h3 className="text-lg font-bold uppercase text-gray-500">
+        <h3 className="text-lg font-bold uppercase text-[#2b124c] ">
           {formattedNowMonth}
         </h3>
         <button
-          className="text-gray-400"
+          className="text-[#2b124c] "
           onClick={() => setNow((now) => now.add(1, "month"))}
         >
           <ChevronRightSvg />

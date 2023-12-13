@@ -100,14 +100,14 @@ export const LoginScreen = ({
   return (
     <article
       className={[
-        "fixed inset-0 z-30 flex flex-col bg-white p-7 transition duration-300",
+        "fixed inset-0 z-30 flex flex-col bg-[#fbe4d8] p-7 transition duration-300",
         loginScreenState === "HIDDEN"
           ? "pointer-events-none opacity-0"
           : "opacity-100",
       ].join(" ")}
       aria-hidden={!loginScreenState}
     >
-      <header className="flex flex-row-reverse justify-between sm:flex-row">
+      <header className="flex flex-row-reverse justify-between sm:flex-row bg-[#fbe4d8]">
         <button
           className="flex text-gray-400"
           onClick={() => setLoginScreenState("HIDDEN")}
@@ -116,7 +116,7 @@ export const LoginScreen = ({
           <span className="sr-only">Close</span>
         </button>
         <button
-          className="hidden rounded-2xl border-2 border-b-4 border-gray-200 px-4 py-3 text-sm font-bold uppercase text-blue-400 transition hover:bg-gray-50 hover:brightness-90 sm:block"
+          className="hidden rounded-2xl border-2 border-b-4 bg-[#854f6c] border-[#522b5b] px-4 py-3 text-sm font-bold uppercase text-white transition hover:bg-opacity-80 sm:block"
           onClick={() =>
             setLoginScreenState((x) => (x === "LOGIN" ? "SIGNUP" : "LOGIN"))
           }
@@ -124,22 +124,22 @@ export const LoginScreen = ({
           {loginScreenState === "LOGIN" ? "Sign up" : "Login"}
         </button>
       </header>
-      <div className="flex grow items-center justify-center">
+      <div className="flex grow items-center justify-center bg-[#fbe4d8]">
         <div className="flex w-full flex-col gap-5 sm:w-96">
-          <h2 className="text-center text-2xl font-bold text-gray-800">
+          <h2 className="text-center text-2xl font-bold text-[#190019]">
             {loginScreenState === "LOGIN" ? "Log in" : "Create your profile"}
           </h2>
           <div className="flex flex-col gap-2 text-black">
             {loginScreenState === "SIGNUP" && (
               <>
-                <div className="relative flex grow">
+                <div className="relative flex grow ">
                   <input
-                    className="grow rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
+                    className="grow rounded-2xl border-2 border-[#522b5b] bg-[#dfb6b2]  px-4 py-3 placeholder-[#2b124c] placeholder-opacity-80"
                     placeholder="Age (optional)"
                   />
                   <div className="absolute bottom-0 right-0 top-0 flex items-center justify-center pr-4">
                     <div
-                      className="relative flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-2 border-gray-200 text-gray-400"
+                      className="relative flex h-6 w-6 cursor-pointer items-center justify-center rounded-full border-2 border-[#2b124c] text-[#2b124c]"
                       onMouseEnter={() => setAgeTooltipShown(true)}
                       onMouseLeave={() => setAgeTooltipShown(false)}
                       onClick={() => setAgeTooltipShown((x) => !x)}
@@ -149,12 +149,12 @@ export const LoginScreen = ({
                     >
                       ?
                       {ageTooltipShown && (
-                        <div className="absolute -right-5 top-full z-10 w-72 rounded-2xl border-2 border-gray-200 bg-white p-4 text-center text-xs leading-5 text-gray-800">
+                        <div className="absolute -right-5 top-full z-10 w-72 rounded-2xl border-2 border-[#2b124c] bg-[#854f6c] p-4 text-center text-xs leading-5 text-white">
                           Providing your age ensures you get the right Duolingo
                           experience. For more details, please visit our{" "}
                           <Link
                             href="https://www.duolingo.com/privacy"
-                            className="text-blue-700"
+                            className="text-white font-bold"
                           >
                             Privacy Policy
                           </Link>
@@ -164,30 +164,30 @@ export const LoginScreen = ({
                   </div>
                 </div>
                 <input
-                  className="grow rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
+                  className="grow rounded-2xl border-2 border-[#2b124c] bg-[#dfb6b2] placeholder-[#2b124c] placeholder-opacity-80 px-4 py-3"
                   placeholder="Name (optional)"
                   ref={nameInputRef}
                 />
               </>
             )}
             <input
-              className="grow rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
+              className="grow rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] px-4 py-3 text-[#190019] placeholder-[#2b124c] placeholder-opacity-80 "
               placeholder={
                 loginScreenState === "LOGIN"
                   ? "Email or username (optional)"
                   : "Email (optional)"
               }
             />
-            <div className="relative flex grow">
+            <div className="relative flex grow ">
               <input
-                className="grow rounded-2xl border-2 border-gray-200 bg-gray-50 px-4 py-3"
+                className="grow rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] px-4 py-3 text-[#190019] placeholder-[#2b124c] placeholder-opacity-80"
                 placeholder="Password (optional)"
                 type="password"
               />
               {loginScreenState === "LOGIN" && (
                 <div className="absolute bottom-0 right-0 top-0 flex items-center justify-center pr-5">
                   <Link
-                    className="font-bold uppercase text-gray-400 hover:brightness-75"
+                    className="font-bold uppercase text-[#854f6c] hover:text-[#522b5b]"
                     href="/forgot-password"
                   >
                     Forgot?
@@ -197,31 +197,31 @@ export const LoginScreen = ({
             </div>
           </div>
           <button
-            className="rounded-2xl border-b-4 border-blue-500 bg-blue-400 py-3 font-bold uppercase text-white transition hover:brightness-110"
+            className="rounded-2xl border-b-4 border-[#522b5b] bg-[#854f6c] py-3 font-bold uppercase text-white transition hover:opacity-80"
             onClick={logInAndSetUserProperties}
           >
             {loginScreenState === "LOGIN" ? "Log in" : "Create account"}
           </button>
           <div className="flex items-center gap-2">
-            <div className="h-[2px] grow bg-gray-300"></div>
-            <span className="font-bold uppercase text-gray-400">or</span>
-            <div className="h-[2px] grow bg-gray-300"></div>
+            <div className="h-[2px] grow bg-[#522b5b]"></div>
+            <span className="font-bold uppercase text-[#2B124C]">or</span>
+            <div className="h-[2px] grow bg-[#522B5B]"></div>
           </div>
           <div className="flex gap-5">
             <button
-              className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-gray-200 py-3 font-bold text-blue-900 transition hover:bg-gray-50 hover:brightness-90"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#854f6c] py-3 font-bold text-blue-900 transition hover:bg-[#DFB6B2] hover:brightness-90"
               onClick={logInAndSetUserProperties}
             >
               <FacebookLogoSvg className="h-5 w-5" /> Facebook
             </button>
             <button
-              className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-gray-200 py-3 font-bold text-blue-600 transition hover:bg-gray-50 hover:brightness-90"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-b-4 border-[#854f6c] py-3 font-bold text-blue-600 transition hover:bg-[#dfb6b2] hover:brightness-90"
               onClick={logInAndSetUserProperties}
             >
               <GoogleLogoSvg className="h-5 w-5" /> Google
             </button>
           </div>
-          <p className="text-center text-xs leading-5 text-gray-400">
+          <p className="text-center text-xs leading-5 text-[#2b124c]">
             By signing in to Duolingo, you agree to our{" "}
             <Link
               className="font-bold"
@@ -238,7 +238,7 @@ export const LoginScreen = ({
             </Link>
             .
           </p>
-          <p className="text-center text-xs leading-5 text-gray-400">
+          <p className="text-center text-xs leading-5 text-[#2b124c]">
             This site is protected by reCAPTCHA Enterprise and the Google{" "}
             <Link
               className="font-bold"

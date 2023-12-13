@@ -23,32 +23,34 @@ const Sound: NextPage = () => {
 
   const soundOptions = [
     {
-      title: "Sound effects",
+      title: "Efek Suara",
       value: localSoundEffects,
       setValue: setLocalSoundEffects,
     },
     {
-      title: "Speaking exercises",
+      title: "Latihan Berbicara",
       value: localSpeakingExercises,
       setValue: setLocalSpeakingExercises,
     },
     {
-      title: "Listening exercises",
+      title: "Latihan Pendengaran",
       value: localListeningExercises,
       setValue: setLocalListeningExercises,
     },
   ];
 
   return (
-    <div>
+    <div className="bg-[#fbe4d8]">
       <TopBar />
       <LeftBar selectedTab={null} />
       <BottomBar selectedTab={null} />
-      <div className="mx-auto flex flex-col gap-5 px-4 py-20 sm:py-10 md:pl-28 lg:pl-72">
+      <div className="mx-auto flex flex-col gap-5 bg-[#fbe4d8] px-4 py-20 sm:py-10 md:pl-28 lg:pl-72 ">
         <div className="mx-auto flex w-full max-w-xl items-center justify-between lg:max-w-4xl">
-          <h1 className="text-lg font-bold text-gray-800 sm:text-2xl">Sound</h1>
+          <h1 className="text-lg font-bold text-[#2b124c] sm:text-2xl">
+            Sound
+          </h1>
           <button
-            className="rounded-2xl border-b-4 border-green-600 bg-green-500 px-5 py-3 font-bold uppercase text-white transition hover:brightness-110 disabled:border-b-0 disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:brightness-100"
+            className="rounded-2xl border-b-4 border-[#2b124c] bg-[#854f6c] px-5 py-3 font-bold uppercase text-white transition hover:brightness-110 disabled:border-b-0 disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:brightness-100"
             onClick={() => {
               setSoundEffects(localSoundEffects);
               setSpeakingExercises(localSpeakingExercises);
@@ -60,10 +62,10 @@ const Sound: NextPage = () => {
               localListeningExercises === listeningExercises
             }
           >
-            Save changes
+            SIMPAN PERUBAHAN
           </button>
         </div>
-        <div className="flex justify-center gap-12">
+        <div className="flex justify-center gap-12 ">
           <div className="flex w-full max-w-xl flex-col gap-8">
             {soundOptions.map(({ title, value, setValue }) => {
               return (
@@ -101,7 +103,7 @@ const Sound: NextPage = () => {
               );
             })}
           </div>
-          <SettingsRightNav selectedTab="Sound" />
+          <SettingsRightNav selectedTab="Suara" />
         </div>
       </div>
     </div>

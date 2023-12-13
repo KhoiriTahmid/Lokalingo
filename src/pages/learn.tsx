@@ -280,25 +280,25 @@ const TileTooltip = ({
           <Link
             href="/lesson"
             className={[
-              "flex w-full items-center justify-center rounded-xl border-b-4 border-gray-200 bg-white p-3 uppercase",
+              "flex w-full items-center justify-center rounded-xl border-b-4 border-[#2b124c] bg-[#fbe4d8] p-3 uppercase",
               activeTextColor,
             ].join(" ")}
           >
-            Start +10 XP
+            Mulai +10 XP
           </Link>
         ) : status === "LOCKED" ? (
           <button
             className="w-full rounded-xl bg-gray-200 p-3 uppercase text-gray-400"
             disabled
           >
-            Locked
+            Terkunci
           </button>
         ) : (
           <Link
             href="/lesson"
             className="flex w-full items-center justify-center rounded-xl border-b-4 border-yellow-200 bg-white p-3 uppercase text-yellow-400"
           >
-            Practice +5 XP
+            Latihan +5 XP
           </Link>
         )}
       </div>
@@ -333,7 +333,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
         backgroundColor={unit.backgroundColor}
         borderColor={unit.borderColor}
       />
-      <div className="relative mb-8 mt-[67px] flex max-w-2xl flex-col items-center gap-4">
+      <div className="relative mb-8 mt-[67px] flex max-w-2xl flex-col items-center gap-4 ">
         {unit.tiles.map((tile, i): JSX.Element => {
           const status = tileStatus(tile, lessonsCompleted);
           return (
@@ -368,11 +368,11 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                       >
                         {tile.type === "fast-forward" && status === "LOCKED" ? (
                           <HoverLabel
-                            text="Jump here?"
+                            text="Lompat kesini?"
                             textColor={unit.textColor}
                           />
                         ) : selectedTile !== i && status === "ACTIVE" ? (
-                          <HoverLabel text="Start" textColor={unit.textColor} />
+                          <HoverLabel text="Mulai" textColor={unit.textColor} />
                         ) : null}
                         <LessonCompletionSvg
                           lessonsCompleted={lessonsCompleted}
@@ -448,7 +448,7 @@ const UnitSection = ({ unit }: { unit: Unit }): JSX.Element => {
                       return tile.description;
                     case "fast-forward":
                       return status === "LOCKED"
-                        ? "Jump here?"
+                        ? "Lompat kesini?"
                         : tile.description;
                     case "trophy":
                       return `Unit ${unit.unitNumber} review`;
@@ -506,9 +506,9 @@ const Learn: NextPage = () => {
         backgroundColor={topBarColors.backgroundColor}
         borderColor={topBarColors.borderColor}
       />
-      <LeftBar selectedTab="Learn" />
+      <LeftBar selectedTab="Belajar" />
 
-      <div className="flex justify-center gap-3 pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12">
+      <div className="flex justify-center gap-3 bg-[#fbe4d8] pt-14 sm:p-6 sm:pt-10 md:ml-24 lg:ml-64 lg:gap-12">
         <div className="flex max-w-2xl grow flex-col">
           {units.map((unit) => (
             <UnitSection unit={unit} key={unit.unitNumber} />
@@ -516,17 +516,17 @@ const Learn: NextPage = () => {
           <div className="sticky bottom-28 left-0 right-0 flex items-end justify-between">
             <Link
               href="/lesson?practice"
-              className="absolute left-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-b-4 border-gray-200 bg-white transition hover:bg-gray-50 hover:brightness-90 md:left-0"
+              className="absolute left-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-b-4 border-[#854f6c] bg-[#dfb6b2] transition hover:bg-gray-50 hover:brightness-90 md:left-0"
             >
-              <span className="sr-only">Practice exercise</span>
+              <span className="sr-only">Latihan Praktek</span>
               <PracticeExerciseSvg className="h-8 w-8" />
             </Link>
             {scrollY > 100 && (
               <button
-                className="absolute right-4 flex h-14 w-14 items-center justify-center self-end rounded-2xl border-2 border-b-4 border-gray-200 bg-white transition hover:bg-gray-50 hover:brightness-90 md:right-0"
+                className="absolute right-4 flex h-14 w-14 items-center justify-center self-end rounded-2xl border-2 border-b-4 border-[#854f6c] bg-[#dfb6b2] transition hover:bg-gray-50 hover:brightness-90 md:right-0"
                 onClick={() => scrollTo(0, 0)}
               >
-                <span className="sr-only">Jump to top</span>
+                <span className="sr-only">Kembali ke atas</span>
                 <UpArrowSvg />
               </button>
             )}
@@ -535,9 +535,9 @@ const Learn: NextPage = () => {
         <RightBar />
       </div>
 
-      <div className="pt-[90px]"></div>
+      <div className="bg-[#fbe4d8] pt-[90px]"></div>
 
-      <BottomBar selectedTab="Learn" />
+      <BottomBar selectedTab="Belajar" />
       <LoginScreen
         loginScreenState={loginScreenState}
         setLoginScreenState={setLoginScreenState}
@@ -620,9 +620,10 @@ const UnitHeader = ({
   const language = useBoundStore((x) => x.language);
   return (
     <article
-      className={["max-w-2xl text-white sm:rounded-xl", backgroundColor].join(
-        " "
-      )}
+      className={[
+        "max-w-2xl text-[#2b124c] sm:rounded-xl",
+        backgroundColor,
+      ].join(" ")}
     >
       <header className="flex items-center justify-between gap-4 p-4">
         <div className="flex flex-col gap-1">
@@ -630,7 +631,7 @@ const UnitHeader = ({
           <p className="text-lg">{description}</p>
         </div>
         <Link
-          href={`https://duolingo.com/guidebook/${language.code}/${unitNumber}`}
+          href={`https://duolingo.com/guidebook/${language.name}/${unitNumber}`}
           className={[
             "flex items-center gap-3 rounded-2xl border-2 border-b-4 p-3 transition hover:text-gray-100",
             borderColor,
@@ -638,7 +639,7 @@ const UnitHeader = ({
         >
           <GuidebookSvg />
           <span className="sr-only font-bold uppercase lg:not-sr-only">
-            Guidebook
+            Panduan
           </span>
         </Link>
       </header>
