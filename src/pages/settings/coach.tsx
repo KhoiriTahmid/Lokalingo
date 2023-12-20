@@ -146,7 +146,7 @@ const Coach: NextPage = () => {
       <TopBar />
       <LeftBar selectedTab={null} />
       <BottomBar selectedTab={null} />
-      <div className="mx-auto flex flex-col gap-5 px-4 py-20 sm:py-10 md:pl-28 lg:pl-72 bg-[#fbe4d8]">
+      <div className="mx-auto flex flex-col gap-5 bg-[#fbe4d8] px-4 py-20 sm:py-10 md:pl-28 lg:pl-72">
         <div className="mx-auto flex w-full max-w-xl items-center justify-between lg:max-w-4xl">
           <h1 className="text-lg font-bold text-gray-800 sm:text-2xl">
             Atur Target Harianmu
@@ -162,18 +162,19 @@ const Coach: NextPage = () => {
         <div className="flex justify-center gap-12">
           <div className="flex w-full max-w-xl flex-col gap-8">
             <p className="text-[#2b124c]">
-              Pelatih disini! Memilih target harian dapat membuatmu semakin termotivasi
-              ketika belajar bahasa daerah baru. Kamu dapat mengubahnya kapanpun kamu mau.
+              Pelatih disini! Memilih target harian dapat membuatmu semakin
+              termotivasi ketika belajar bahasa daerah baru. Kamu dapat
+              mengubahnya kapanpun kamu mau.
             </p>
             <div className="flex gap-5 ">
-              <CoachSvg className="hidden h-52 w-52 sm:block" />
+              {/* <CoachSvg className="hidden h-52 w-52 sm:block" /> */}
               <div className="grow">
                 {goalXpOptions.map(({ title, xp }, i) => {
                   return (
                     <button
                       key={title}
                       className={[
-                        "flex w-full items-center justify-between border-2 p-4 first:rounded-t-2xl last:rounded-b-2xl last:border-b-2 border-[#2b124c] bg-[#dfb6b2]",
+                        "flex w-full items-center justify-between border-2 border-[#2b124c] bg-[#dfb6b2] p-4 first:rounded-t-2xl last:rounded-b-2xl last:border-b-2",
                         xp === localGoalXp
                           ? "border-b-2 border-[#190019] bg-[#190019] text-[#fbe4d8]"
                           : "border-t-0 border-[#2b124c] first:border-t-2 hover:bg-[#dfb6b2] hover:bg-opacity-50",

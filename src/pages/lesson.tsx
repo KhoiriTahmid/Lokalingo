@@ -356,7 +356,7 @@ const CheckAnswer = ({
 }) => {
   return (
     <>
-      <section className="border-[#2b124c] sm:border-t-2 sm:p-10 bg-[#fbe4d8]">
+      <section className="border-[#2b124c] bg-[#fbe4d8] sm:border-t-2 sm:p-10">
         <div className="mx-auto flex max-w-5xl sm:justify-between ">
           <button
             className="hidden rounded-2xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] p-3 font-bold uppercase text-[#2b124c] transition hover:border-opacity-50 hover:bg-opacity-50 sm:block sm:min-w-[150px] sm:max-w-fit"
@@ -460,7 +460,7 @@ const ProblemSelect1Of3 = ({
   const { question, answers, correctAnswer } = problem;
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col gap-5 bg-[#fbe4d8] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5 ">
         <div className="w-full max-w-5xl sm:mt-8 sm:px-5">
           <ProgressBar
@@ -482,10 +482,10 @@ const ProblemSelect1Of3 = ({
               return (
                 <div
                   key={i}
-                  className={ 
+                  className={
                     i === selectedAnswer
-                      ? "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#b9f3fc] p-4 text-[#190019] font-bold"
-                      : "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] p-4 hover:bg-gray-100 text-[#190019] "
+                      ? "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#b9f3fc] p-4 font-bold text-[#190019]"
+                      : "cursor-pointer rounded-xl border-2 border-b-4 border-[#2b124c] bg-[#dfb6b2] p-4 text-[#190019] hover:bg-gray-100 "
                   }
                   role="radio"
                   aria-checked={i === selectedAnswer}
@@ -551,7 +551,7 @@ const ProblemWriteInEnglish = ({
   const { question, correctAnswer, answerTiles } = problem;
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col gap-5 bg-[#fbe4d8] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center gap-5">
         <div className="w-full max-w-5xl sm:mt-8 sm:px-5">
           <ProgressBar
@@ -672,7 +672,7 @@ const LessonComplete = ({
     (x) => x.increaseLessonsCompleted
   );
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-4 py-5 sm:px-0 sm:py-0 bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col gap-5 bg-[#fbe4d8] px-4 py-5 sm:px-0 sm:py-0">
       <div className="flex grow flex-col items-center justify-center gap-8 font-bold">
         <h1 className="text-center text-3xl text-[#2b124c]">
           Pembelajaran selesai!
@@ -713,7 +713,7 @@ const LessonComplete = ({
           </button>
           <Link
             className={
-              "flex w-full items-center justify-center rounded-2xl border-b-4 border-[#748e63] bg-[#99b080] p-3 font-bold uppercase text-white transition hover:bg-opacity-70 hover:border-opacity-70 sm:min-w-[150px] sm:max-w-fit"
+              "flex w-full items-center justify-center rounded-2xl border-b-4 border-[#748e63] bg-[#99b080] p-3 font-bold uppercase text-white transition hover:border-opacity-70 hover:bg-opacity-70 sm:min-w-[150px] sm:max-w-fit"
             }
             href="/learn"
             onClick={() => {
@@ -825,7 +825,7 @@ const ReviewLesson = ({
                       {questionResult.yourResponse}
                     </div>
                     <div className="font-bold uppercase text-[#2b124c]">
-                      Jawaban sebenarnya:
+                      Jawaban benar:
                     </div>
                     <div className="text-gray-700">
                       {questionResult.correctResponse}
@@ -849,7 +849,7 @@ const LessonFastForwardStart = ({
   setIsStartingLesson: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col bg-[#fbe4d8] px-5 py-8 text-center">
       <div className="flex grow flex-col items-center justify-center gap-5">
         <LessonFastForwardStartSvg />
         <h1 className="text-lg font-bold text-[#190019]">
@@ -892,7 +892,7 @@ const LessonFastForwardEndFail = ({
   questionResults: QuestionResult[];
 }) => {
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col bg-[#fbe4d8] px-5 py-8 text-center">
       <div className="flex grow flex-col items-center justify-center gap-5">
         <LessonFastForwardEndFailSvg />
         <h1 className="text-2xl font-bold">
@@ -940,12 +940,13 @@ const LessonFastForwardEndPass = ({
 }) => {
   const jumpToUnit = useBoundStore((x) => x.jumpToUnit);
   return (
-    <div className="flex min-h-screen flex-col px-5 py-8 text-center bg-[#fbe4d8]">
+    <div className="flex min-h-screen flex-col bg-[#fbe4d8] px-5 py-8 text-center">
       <div className="flex grow flex-col items-center justify-center gap-5 ">
         <LessonFastForwardEndPassSvg />
-        <h1 className="text-2xl font-bold">Kamu telah membuka unit {unitNumber}, yey!</h1>
+        <h1 className="text-2xl font-bold">
+          Kamu telah membuka unit {unitNumber}, yey!
+        </h1>
         <p className="text-lg text-gray-500">
-          
           Kamu telah membuat progres besar!
         </p>
       </div>

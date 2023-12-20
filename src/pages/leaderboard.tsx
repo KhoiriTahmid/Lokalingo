@@ -37,7 +37,7 @@ const LeaderboardExplanationSection = () => {
 
       <div className="w-10 shrink-0"></div>
 
-      <LeaderboardExplanationSvg />
+      {/* <LeaderboardExplanationSvg /> */}
     </article>
   );
 };
