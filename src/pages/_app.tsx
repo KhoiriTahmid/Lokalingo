@@ -1,5 +1,6 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "~/styles/globals.css";
 
@@ -17,6 +18,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <link rel="manifest" href="/app.webmanifest" />
       </Head>
       <Component {...pageProps} />
+      <SpeedInsights />
     </>
   );
 };

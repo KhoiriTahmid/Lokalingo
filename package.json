@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.2.1",
+    "@vercel/speed-insights": "^1.0.2",
     "dayjs": "^1.11.7",
     "next": "^14.0.3",
     "react": "18.2.0",
