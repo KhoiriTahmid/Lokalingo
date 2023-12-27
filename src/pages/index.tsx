@@ -4,11 +4,7 @@ import { GlobeSvg } from "~/components/Svgs";
 import React from "react";
 import { LanguageHeader } from "~/components/LanguageHeader";
 import { useLoginScreen, LoginScreen } from "~/components/LoginScreen";
-import _bgSnow from "../../public/bg-snow.svg";
-import type { StaticImageData } from "next/image";
 import { LanguageCarousel } from "~/components/LanguageCarousel";
-
-const bgSnow = _bgSnow as StaticImageData;
 
 const Home: NextPage = () => {
   const { loginScreenState, setLoginScreenState } = useLoginScreen();
