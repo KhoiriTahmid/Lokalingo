@@ -96,6 +96,26 @@ export const LoginScreen = ({
     logIn();
     void router.push("/learn");
   };
+  
+
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
+  const buttonClick = (input: String)=>{
+
+    if(loginScreenState === "LOGIN" && ( input == "admin1" || input == "admin2") ){
+      logInAndSetUserProperties();
+      console.info("masuk");
+    }else if(loginScreenState != "LOGIN"){
+      console.info("berhasil");
+    }else{
+      console.info("Salah");
+    }
+    setLoginScreenState("LOGIN")
+    setEmail("");
+    setPass("");
+  }
+
 
   return (
     <article
@@ -124,7 +144,8 @@ export const LoginScreen = ({
           {loginScreenState === "LOGIN" ? "Sign up" : "Login"}
         </button>
       </header>
-      <div className="flex grow items-center justify-center bg-[#fbe4d8]">
+      <div className="flex grow w- items-center justify-center bg-[#fbe4d8]">
+     
         <div className="flex w-full flex-col gap-5 sm:w-96">
           <h2 className="text-center text-2xl font-bold text-[#190019]">
             {loginScreenState === "LOGIN" ? "Log in" : "Create your profile"}
@@ -170,6 +191,7 @@ export const LoginScreen = ({
                 />
               </>
             )}
+         
             <input
               className="grow rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] px-4 py-3 text-[#190019] placeholder-[#2b124c] placeholder-opacity-80 "
               placeholder={
@@ -177,12 +199,20 @@ export const LoginScreen = ({
                   ? "Email or username (optional)"
                   : "Email (optional)"
               }
+              value={email}
+              onChange={(e)=>setEmail(e.target.value)}
+              
             />
+
+            
+
             <div className="relative flex grow ">
               <input
                 className="grow rounded-2xl border-2 border-[#854f6c] bg-[#dfb6b2] px-4 py-3 text-[#190019] placeholder-[#2b124c] placeholder-opacity-80"
                 placeholder="Password (optional)"
                 type="password"
+                value={pass}
+                onChange={(e)=>setPass(e.target.value)}
               />
               {loginScreenState === "LOGIN" && (
                 <div className="absolute bottom-0 right-0 top-0 flex items-center justify-center pr-5">
@@ -198,7 +228,7 @@ export const LoginScreen = ({
           </div>
           <button
             className="rounded-2xl border-b-4 border-[#522b5b] bg-[#854f6c] py-3 font-bold uppercase text-white transition hover:opacity-80"
-            onClick={logInAndSetUserProperties}
+            onClick={()=>buttonClick(email)}
           >
             {loginScreenState === "LOGIN" ? "Log in" : "Create account"}
           </button>
@@ -221,6 +251,8 @@ export const LoginScreen = ({
               <GoogleLogoSvg className="h-5 w-5" /> Google
             </button>
           </div>
+
+          
           <p className="text-center text-xs leading-5 text-[#2b124c]">
             By signing in to Duolingo, you agree to our{" "}
             <Link
